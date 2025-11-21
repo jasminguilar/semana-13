@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio Profesional - Jasmin Alminagorda</title>
+<style>
+  /* ====== ESTILOS GENERALES ====== */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f3e6f5, #fdfdfd);
+    color: #333;
+  }
+
+  /* ====== MENÚ LATERAL ====== */
+  .sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, #b15ba6, #d37fbf);
+    color: #fff;
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%;
+    overflow-y: auto;
+    padding-top: 30px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+  }
+
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+
+  .menu { list-style: none; }
+  .menu li { position: relative; }
+
+  .menu li a {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 22px;
+    color: #fff; text-decoration: none; font-weight: 500;
+    transition: background 0.3s, padding-left 0.3s;
+  }
+
+  .menu li a:hover {
+    background-color: rgba(255,255,255,0.2);
+    padding-left: 28px;
+  }
+
+  .submenu {
+    list-style: none;
+    background-color: rgba(255,255,255,0.1);
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .submenu li a {
+    padding: 10px 45px;
+    font-size: 0.95rem;
+  }
+
+  .menu li.active .submenu { max-height: 500px; }
+  .menu li a .arrow { transition: transform 0.3s; }
+  .menu li.active a .arrow { transform: rotate(90deg); }
+
+  /* ====== CONTENIDO PRINCIPAL ====== */
+  .main {
+    margin-left: 260px;
+    padding: 50px;
+    flex: 1;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .main h1 {
+    font-size: 2rem;
+    color: #6f0b8d;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .main p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #444;
+  }
+
+  /* ====== TARJETAS ====== */
+  .card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  .card:hover { transform: translateY(-5px); }
+
+  .card h2 { color: #8a2b8d; margin-bottom: 10px; }
+  .card ul { padding-left: 20px; }
+  .card ul li { margin-bottom: 8px; }
+
+  /* ====== MULTIMEDIA ====== */
+  .cv-container, .video-presentacion {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .cv-container img, .cv-container video, .video-presentacion video {
+    width: 85%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+
+  iframe {
+    width: 85%;
+    max-width: 800px;
+    height: 450px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+
+  /* ====== REDES SOCIALES ====== */
+  ul.social {
+    list-style: none;
+    margin-top: 10px;
+  }
+
+  ul.social li {
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+
+  /* ====== PERFIL IMAGEN + TEXTO ====== */
+  .descripcion-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .descripcion-container img {
+    width: 280px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
+
+  .descripcion-container p {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+
+  <!-- ====== MENÚ LATERAL ====== -->
+  <div class="sidebar">
+    <h2>Portafolio Jasmin</h2>
+    <ul class="menu">
+      <li>
+        <a href="#">Sobre mí <span class="arrow">▶</span></a>
+        <ul class="submenu">
+          <li><a href="#" onclick="mostrarContenido('perfil')">Perfil</a></li>
+          <li><a href="#" onclick="mostrarContenido('descripcion')">Descripción personal</a></li>
+          <li><a href="#" onclick="mostrarContenido('habilidades')">Habilidades</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Proyectos <span class="arrow">▶</span></a>
+        <ul class="submenu">
+          <li><a href="#" onclick="mostrarContenido('moda')">Moda JAZ</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Contacto <span class="arrow">▶</span></a>
+        <ul class="submenu">
+          <li><a href="#" onclick="mostrarContenido('correo')">Correo</a></li>
+          <li><a href="#" onclick="mostrarContenido('redes')">Redes Sociales</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ====== CONTENIDO PRINCIPAL ====== -->
+  <div class="main" id="contenido">
+    <h1>¡Hola! Soy Jasmin Alminagorda</h1>
+    <div class="card">
+      <p>Soy una técnica en informática apasionada por el diseño, la tecnología y la innovación. Mi objetivo es desarrollarme profesionalmente y construir un futuro estable a través del esfuerzo, la creatividad y la disciplina. Aspiro a tener mi propia empresa de moda y tecnología, combinando estilo, funcionalidad y emprendimiento responsable.</p>
+    </div>
+    
+  </div>
+
+<script>
+  // ====== CONTROL DEL MENÚ ====== 
+  const menuItems = document.querySelectorAll(".menu li a");
+  menuItems.forEach(item => {
+    item.addEventListener("click", e => {
+      const parent = item.parentElement;
+      if (item.nextElementSibling && item.nextElementSibling.classList.contains("submenu")) {
+        e.preventDefault();
+        parent.classList.toggle("active");
+      }
+    });
+  });
+
+  // ====== CAMBIO DE CONTENIDO ======
+  function mostrarContenido(seccion) {
+    const contenido = document.getElementById("contenido");
+    let html = "";
+
+    switch (seccion) {
+      case "perfil":
+        html = `
+          <h1>Currículum Vitae</h1>
+          <div class="cv-container">
+            <img src="foto1.jpg" alt="Currículum de Jasmin">
+            <p><em>Mi formación técnica y experiencia profesional me permiten adaptarme con facilidad a entornos tecnológicos, contables y administrativos, aplicando soluciones eficientes y seguras.</em></p>
+          </div>`;
+        break;
+
+      case "descripcion":
+        html = `
+          <h1>Sobre Jasmin</h1>
+          <div class="card descripcion-container">
+            <img src="foto3.jpeg" alt="Foto de Jasmin">
+            <p>Soy una persona comprometida, proactiva y perseverante. Me gusta aprender, innovar y asumir nuevos desafíos que impulsen mi desarrollo personal y profesional. Aspiro a construir un futuro estable, liderar mi propio negocio de moda y tecnología, y ser un ejemplo de esfuerzo, disciplina y superación.</p>
+          </div>`;
+        break;
+
+      case "habilidades":
+        html = `
+          <h1>Mis Habilidades</h1>
+          <div class="card">
+            <ul>
+              <li>Diseño y desarrollo web (HTML, CSS, JS)</li>
+              <li>Diseño de moda y emprendimiento</li>
+              <li>Responsabilidad, disciplina y liderazgo</li>
+              <li>Creatividad en diseño de moda</li>
+            </ul>
+          </div>`;
+        break;
+
+      case "moda":
+        html = `
+          <h1>Proyecto: Moda JAZ</h1>
+          <div class="card">
+            <p><strong>Moda JAZ</strong> es un emprendimiento que combina estilo, creatividad y tecnología para ofrecer prendas exclusivas. Busco promover una moda moderna, cómoda y accesible, reflejando autenticidad y confianza en cada diseño.</p>
+            <img src="foto2.jpg" alt="Proyecto Moda JAZ">
+            <div style="text-align:center; margin-top:20px;">
+              <iframe src="https://www.youtube.com/embed/1Cm8KuMiaQA" title="Video sobre diseño de moda" allowfullscreen></iframe>
+            </div>
+          </div>`;
+        break;
+
+      case "correo":
+        html = `
+          <h1>Contacto Directo</h1>
+          <p>Puedes comunicarte conmigo a través de:</p>
+          <p><strong>Email:</strong> jazminalminagorda@gmail.com</p>`;
+        break;
+
+      case "redes":
+        html = `
+          <h1>Redes Sociales</h1>
+          <p>Sígueme y conoce más sobre mis proyectos:</p>
+          <ul class="social">
+            <li>📘 Facebook: <strong>@ModaJAZ</strong></li>
+            <li>📸 Instagram: <strong>@jazmin.informatica</strong></li>
+            <li>💼 LinkedIn: <strong>/in/jazmin-alminagorda</strong></li>
+          </ul>`;
+        break;
+
+      default:
+        html = `<h1>Bienvenida</h1><p>Selecciona una sección del menú para conocer más sobre mí.</p>`;
+    }
+
+    contenido.innerHTML = html;
+  }
+</script>
+
+</body>
+</html>
